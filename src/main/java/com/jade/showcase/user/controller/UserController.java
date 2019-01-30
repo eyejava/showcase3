@@ -9,6 +9,7 @@ import com.jade.showcase.common.BaseController;
 import com.jade.showcase.user.entity.User;
 import com.jade.showcase.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,7 @@ import java.util.Map;
  * @since 2019-01-29
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/user/user")
 public class UserController extends BaseController {
     @Autowired
@@ -35,6 +37,16 @@ public class UserController extends BaseController {
     }
 
 
+
+    @RequestMapping("getUserList")
+    public  List<User> getLists(){
+        IPage<User> page = new Page();
+        page.setSize(3);
+        page.setCurrent(1);
+        IPage<User> userList = userService.lambdaQuery().page(page);
+        List<User> records = userList.getRecords();
+        return  records;
+    }
     @RequestMapping("getUsernameByDB")
     public String getUsernameByDB() {
         User user = userService.getById(100);
