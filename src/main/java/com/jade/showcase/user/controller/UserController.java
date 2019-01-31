@@ -10,6 +10,7 @@ import com.jade.showcase.user.entity.User;
 import com.jade.showcase.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -47,6 +48,14 @@ public class UserController extends BaseController {
         List<User> records = userList.getRecords();
         return  records;
     }
+
+    @RequestMapping("addUser")
+    public  String addUser(@RequestBody User user){
+        System.out.println("=======================");
+        userService.save(user);
+        return user.getId().toString();
+    }
+
     @RequestMapping("getUsernameByDB")
     public String getUsernameByDB() {
         User user = userService.getById(100);
