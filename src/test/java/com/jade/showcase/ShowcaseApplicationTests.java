@@ -7,10 +7,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+
 public class ShowcaseApplicationTests {
 
     @Test
     public void contextLoads() {
+        System.out.println("-======================-");
     }
 
 }
