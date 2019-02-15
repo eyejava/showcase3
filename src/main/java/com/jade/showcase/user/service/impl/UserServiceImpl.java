@@ -23,4 +23,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
 
+    @Override
+    public User getUserByCache(Integer userId) {
+        return this.getById(userId);
+    }
 }

@@ -1,6 +1,9 @@
 package com.jade.showcase.user.controller;
 
 
+import com.alicp.jetcache.Cache;
+import com.alicp.jetcache.anno.CacheType;
+import com.alicp.jetcache.anno.CreateCache;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -9,10 +12,7 @@ import com.jade.showcase.common.BaseController;
 import com.jade.showcase.user.entity.User;
 import com.jade.showcase.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -29,15 +29,25 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/user/user")
 public class UserController extends BaseController {
+    @CreateCache(expire = 100, cacheType = CacheType.REMOTE)
+    private Cache<Integer, User> userCache;
     @Autowired
     IUserService userService;
 
     @RequestMapping("getUsername")
     public String getUsername() {
+        userCache.put(100000012 ,userService.getUserByCache(110));
         return "jade";
     }
 
 
+
+    @RequestMapping("getUserByCache")
+    @ResponseBody
+    public  User getUserByCache(Integer userId){
+
+       return userService.getUserByCache(userId);
+    }
 
     @RequestMapping("getUserList")
     public  List<User> getLists(){

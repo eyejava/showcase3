@@ -1,4 +1,6 @@
 package com.jade.showcase.common;
 
-public class BaseEntity {
+import java.io.Serializable;
+
+public class BaseEntity implements Serializable {
 }

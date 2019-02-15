@@ -1,0 +1,20 @@
+logging:
+  level:
+    root: debug
+
+
+jetcache:
+  areaInCacheName: false
+  remote:
+    default:
+      type: redis
+      keyConvertor: fastjson
+      valueEncoder: java
+      valueDecoder: java
+      poolConfig:
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+      host: 192.168.0.110
+      port: 6379
+      password: meis2018
