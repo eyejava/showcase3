@@ -59,8 +59,10 @@ public class CodeGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
+   //     pc.setController("com.jade.showcase");
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.jade.showcase");
+    //    pc.setService("com.jade.showcase");
+        pc.setParent("com.jade.showcase.demo");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -115,7 +117,7 @@ public class CodeGenerator {
         strategy.setInclude(scanner("表名"));
         strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix(pc.getModuleName() + "_");
+        strategy.setTablePrefix(  "tm_");
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();

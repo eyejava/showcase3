@@ -12,6 +12,8 @@ import com.jade.showcase.common.BaseController;
 import com.jade.showcase.user.entity.User;
 import com.jade.showcase.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,10 +35,18 @@ public class UserController extends BaseController {
     private Cache<Integer, User> userCache;
     @Autowired
     IUserService userService;
+    @Autowired
+    RedisTemplate redisTemplate;
 
     @RequestMapping("getUsername")
     public String getUsername() {
-        userCache.put(100000012 ,userService.getUserByCache(110));
+      //  userCache.put(100000012 ,userService.getUserByCache(110));
+
+        ValueOperations<String, Integer> operations=redisTemplate.opsForValue();
+        operations.set("hanyu", 100);
+        Integer name = operations.get("hanyu");
+        System.out.println(name + "========================");
+        System.out.println(name + "========================");
         return "jade";
     }
 
