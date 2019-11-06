@@ -3,13 +3,11 @@ package com.jade.showcase.text;
 import com.baidu.aip.contentcensor.AipContentCensor;
 import org.json.JSONObject;
 
-import java.util.Arrays;
-
 public class ImageAuditUtils {
     //设置APPID/AK/SK
-    public static final String APP_ID = "17068753";
-    public static final String API_KEY = "QhowSqgGPIvek7F9L4YBt11f";
-    public static final String SECRET_KEY = "bEvOWAbFQ7EvS65qG7hTTGoPWDmBbmn1";
+    public static final String APP_ID = "17711901";
+    public static final String API_KEY = "ck3kG8YvjKZZ8wSSzmt6kuNX";
+    public static final String SECRET_KEY = "EryYoDGyKsru97G8t7yA9ZAqGfoVCS4j";
 
     public static void main(String[] args) {
         // 初始化一个AipContentCensor

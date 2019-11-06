@@ -15,12 +15,12 @@ public class TextAuditUtils {
         String access_token = BaiDuAuthConfig.getAuth();
         Map<String, String> parameters = new HashMap<>();
         //添加调用参数
-        parameters.put("access_token", access_token);
+     //   parameters.put("access_token", access_token);
       //  String detail = "过了一会，刘豪撸下一点白洁上身的裙口，看她露出软柔的部分，刘豪意乱神迷的吸了上去。再过了一会，白洁也呼吸有些加促，她的手忍不住轻轻握住了刘豪的那东西。随着轻抚的动作，白洁的身上裙子被褪了下来。";
         String detail ="反动言论";
         parameters.put("content", detail);
         //调用文本审核接口
-        String result = HttpUtil.doPost(BaiDuAuthConfig.WORD_CHECK_URL, parameters);
+        String result = HttpUtil.doPost(BaiDuAuthConfig.WORD_CHECK_URL+"?"+"access_token="+access_token, parameters);
         // JSON转换
         net.sf.json.JSONObject jsonObj = net.sf.json.JSONObject.fromObject(result);
         Map<String, Class> classMap = new HashMap<String, Class>();

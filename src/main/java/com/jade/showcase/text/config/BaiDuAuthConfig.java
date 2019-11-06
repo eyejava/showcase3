@@ -28,9 +28,9 @@ public class BaiDuAuthConfig {
      */
     public static String getAuth() {
         // 官网获取的 API Key 更新为你注册的
-        String clientId = "GR8rpeGOfjiFraQg9NGkEjyG";
+        String clientId = "ck3kG8YvjKZZ8wSSzmt6kuNX";
         // 官网获取的 Secret Key 更新为你注册的
-        String clientSecret = "2BRfUFmntQ348gVmTKdnh3TxFfzfciUB";
+        String clientSecret = "EryYoDGyKsru97G8t7yA9ZAqGfoVCS4j";
         return getAuth(clientId, clientSecret);
     }
 

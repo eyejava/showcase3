@@ -1,11 +1,9 @@
 package com.jade.showcase.text;
 
-import ch.qos.logback.core.util.FileUtil;
 import com.alibaba.fastjson.JSON;
 import com.baidu.aip.util.Base64Util;
 import com.jade.showcase.text.config.BaiDuAuthConfig;
 import com.jade.showcase.utils.HttpUtil;
-import net.sf.json.util.JSONUtils;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -30,7 +28,8 @@ public class ImageAuditUtil {
         scenes.add("disgust");
         scenes.add("watermark");
 
-        String filePath = "D:\\测试图片\\seqing.jpg";
+      //  String filePath = "D:\\测试图片\\seqing.jpg";
+        String filePath = "D:\\测试图片\\sq2.jpg";
 
         byte[] imgData = FileUtils.readFileToByteArray(new File(filePath));
         String imgStr = Base64Util.encode(imgData);
@@ -46,9 +45,6 @@ public class ImageAuditUtil {
         System.out.println(jsonStr);
         String result = HttpUtil.doPostJson(BaiDuAuthConfig.IMG_CENSOR_URL+"?access_token="+access_token, jsonStr);
         System.out.println(result);
-
-
-
 
     }
 }
