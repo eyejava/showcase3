@@ -18,18 +18,18 @@ public class ImageAuditUtil {
     public static void main(String[] args) throws IOException {
         Map<String, Object> input = new HashMap<String, Object>();
         List<Object> scenes = new ArrayList<Object>();
-        scenes.add("ocr");
-        scenes.add("face");
-        scenes.add("public");
-        scenes.add("politician");
+//        scenes.add("ocr");
+//        scenes.add("face");
+//        scenes.add("public");
+//        scenes.add("politician");
         scenes.add("antiporn");
-        scenes.add("terror");
-        scenes.add("webimage");
-        scenes.add("disgust");
-        scenes.add("watermark");
+//        scenes.add("terror");
+//        scenes.add("webimage");
+//        scenes.add("disgust");
+//        scenes.add("watermark");
 
       //  String filePath = "D:\\测试图片\\seqing.jpg";
-        String filePath = "D:\\测试图片\\sq2.jpg";
+        String filePath = "D:\\测试图片\\3.jpg";
 
         byte[] imgData = FileUtils.readFileToByteArray(new File(filePath));
         String imgStr = Base64Util.encode(imgData);
@@ -44,6 +44,7 @@ public class ImageAuditUtil {
         String jsonStr = JSON.toJSONString(input);
         System.out.println(jsonStr);
         String result = HttpUtil.doPostJson(BaiDuAuthConfig.IMG_CENSOR_URL+"?access_token="+access_token, jsonStr);
+        System.out.println(result);
         System.out.println(result);
 
     }

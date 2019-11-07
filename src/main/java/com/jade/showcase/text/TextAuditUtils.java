@@ -28,6 +28,7 @@ public class TextAuditUtils {
         classMap.put("pass", Pass.class);
         classMap.put("bass", CheckTextResult.class);
         CheckTextResult bean = (CheckTextResult) net.sf.json.JSONObject.toBean(jsonObj, CheckTextResult.class, classMap);
+        System.out.println(bean);
 
         if ((bean.getResult().getReject().size() + bean.getResult().getReview().size() > 0)) {
             System.out.println(bean.getResult().getReject());
