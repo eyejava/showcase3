@@ -31,3 +31,4 @@ test-111
 pick-2
 pick-3
 pick5
+pick6
